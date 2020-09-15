@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+###########################################################################################
+# Plex Media Server
+###########################################################################################
+    plexmediaserver:
+        build: ./plexmediaserver
+        restart: unless-stopped
+        container_name: plex
+        network_mode: host
+        environment:
+            - PUID=1000
+            - PGID=1000
+            - VERSION=docker
+        volumes:
+            - plex_config:/config
+        
+###########################################################################################
+# FFMPEG
+###########################################################################################
+    unicorn_ffmpeg:
+        build: ./ffmpeg
+        restart: unless-stopped
+        container_name: ffmpeg
+        network_mode: host
+    
+    
+###########################################################################################
+# Transcoder
+###########################################################################################
+    unicorn_transcoder:
+        build: ./transcoder
+        restart: unless-stopped
+        container_name: transcoder
+        network_mode: host
+
+###########################################################################################
+# Load Balancer
+###########################################################################################
+    unicorn_loadbalancer:
+        build: ./loadbalancer
+        restart: unless-stopped
+        container_name: loadbalancer
+        network_mode: host
+
+###########################################################################################
+# Volumes
+###########################################################################################
+
+volumes:
+    plex_config:

@@ -1,8 +1,8 @@
-FROM node:current-alpine3.10
+FROM node:latest
 
 LABEL maintainer="mueee"
 
-RUN apk add --no-cache \
+RUN apt-get install -y \ 
 git 
 #curl \
 #python \
