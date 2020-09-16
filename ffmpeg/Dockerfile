@@ -3,13 +3,7 @@ FROM node:latest
 LABEL maintainer="mueee"
 
 RUN apt-get install -y \ 
-git 
-#curl \
-#python \
-#make \
-#gcc \
-#libc-dev \
-#g++
+git  
 
 RUN git clone https://github.com/UnicornTranscoder/UnicornFFMPEG.git
 WORKDIR ./UnicornFFMPEG
