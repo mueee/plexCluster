@@ -1,6 +1,8 @@
 # Plex Cluster in development
 I didn't find anything similar - so I started this project. The idea is to use my cluster of three raspberry pi 4 for Plex Server.
 
+Noch in Arbeit
+
 # plexCluster
 First try of a Plex Cluster using the following tools:
 
@@ -19,4 +21,3 @@ Plex Docker used from
 
 # Docker-Compose
 Docker Compose for testing purposes added.
-
